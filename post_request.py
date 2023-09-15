@@ -14,11 +14,7 @@ reqHeaders = {
     'Accept': '*/*',
     'Connection': 'keep-alive'
 }
-
 def req(dir: Direct, reqData: Info, params: Info, cookies):
-    if params is None:
-        return requests.post(reqUrl+dir.value,data=reqData.toJson(),headers=reqHeaders,cookies=cookies)
-    else:
-        return requests.post(reqUrl+dir.value,data=reqData.toJson(),headers=reqHeaders,params=params.toJson(),cookies=cookies)
+    return requests.post(reqUrl+dir.value,data=reqData.toJson(),headers=reqHeaders,params=params.toJson() if params is not None else None,cookies=cookies)
 def loginReq(dir: Direct, reqData: Info):
     return requests.post(reqUrl+dir.value,data=reqData.toJson(),headers=reqHeaders)
