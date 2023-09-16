@@ -44,9 +44,10 @@ def task():
                 req(Direct["ELEC"],reqInfo,paramInfo.method("login_sys_upd"),cookies)
                 break
             if "alert_text" in newMsg:
-                print("[" + item["CURS_CODE"] + "] " + item["CNAME"] + ": " + newMsg["alert_text"])
+                print("[" + item["CURS_CODE"] + "] " + item["CNAME"] + " [❎]: " + newMsg["alert_text"])
             else:
-                print("[" + item["CURS_CODE"] + "] " + item["CNAME"] + ": " + newMsg["alerts"])
+                print("[" + item["CURS_CODE"] + "] " + item["CNAME"] + " [✅]: " + newMsg["alerts"])
+    os.system("pause")
 
 if __name__ == '__main__':
     os.system("title 搶課機器人")
@@ -58,6 +59,9 @@ if __name__ == '__main__':
             res = loginReq(Direct["LOGIN"],info)
             if res.status_code != 200:
                 print("請求傳送失敗!")
+                continue
+            if res.text == "伺服器執行錯誤(i)":
+                print("登入失敗! 請檢查學號及密碼是否正確!")
                 continue
             msg = res.json()
             if msg['done_YN'] == "N":
