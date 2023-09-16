@@ -1,4 +1,5 @@
 # 中原大學自動搶課系統 CYCU-Course-Selector
+![banner](https://i.imgur.com/JNam8d2.png)
 
 ## 介紹
 此程式協助你在中原大學的Myself選課系統中，自動幫你從追蹤清單中搶課加選。
