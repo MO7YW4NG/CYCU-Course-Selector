@@ -7,9 +7,10 @@ target = Executable(
 
 setup(
     name="CYCU Course Selector",
-    version="1.1",
+    version="1.2",
     description="CYCU course selector app",
     author="MO7YW4NG",
+    options={'bdist_msi': {'initial_target_dir': r'[DesktopFolder]\\CYCU Course Selector'}},
     executables=[target],
 )
 

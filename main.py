@@ -1,4 +1,3 @@
-import json
 from post_request import req, loginReq, Direct
 from info import LoginInfo, ParamInfo, RequestInfo, InsertInfo, AuthData
 from time import sleep
