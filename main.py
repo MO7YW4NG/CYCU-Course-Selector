@@ -24,7 +24,7 @@ def auth(login_token, login_info, cookies):
     res = req(Direct["AUTH"], elecAuthData, None, cookies)
     msg = res.json()
     if "APP_AUTH_token" not in msg:
-        login(login_info)
+        login_token, cookies = login(login_info)
         sleep(1)
         return auth(login_token, login_info, cookies)
     return msg["APP_AUTH_token"], cookies
