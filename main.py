@@ -37,13 +37,13 @@ def request_course(login_token, auth_token, cookies):
         return track_req.status_code
     msg = track_req.json()
     for item in msg["track_get"]:
-        insert_info = InsertInfo([{"DATA_Token": item["DATA_Token"]}])
+        insert_info = InsertInfo({"DATA_Token": item["DATA_Token"]})
         insert_req = req(Direct["ELEC"], req_info.insert_info(insert_info), param_info.set_mtd("take_course_and_register_insert"),cookies)
         if insert_req.status_code != 200:
             continue
         new_msg = insert_req.json()
         if "distinct_IP_IDCODE_alert" in new_msg:
-            req(Direct["ELEC"], req_info, param_info.method("login_sys_upd"), cookies)
+            req(Direct["ELEC"], req_info, param_info.set_mtd("login_sys_upd"), cookies)
             break
         if "alert_text" in new_msg:
             print("[" + item["CURS_CODE"] + "] " + item["CNAME"] + " [❎]: " + new_msg["alert_text"])
