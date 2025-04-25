@@ -5,6 +5,8 @@
 
 ## 介紹
 此程式協助你在中原大學的Myself選課系統中，自動幫你從追蹤清單中搶課加選。
+
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/MO7YW4NG/CYCU-Course-Selector/total)
 ## 使用方法
 
 1. [下載 msi 安裝檔](https://github.com/MO7YW4NG/CYCU-Course-Selector/releases)
